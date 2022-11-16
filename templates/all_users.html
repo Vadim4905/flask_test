@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+    {% block main %}
+      <h1>Все пользователи</h1>
+      <table class="table">
+        <tr>
+          <th>Id</th>
+          <th >Никнейм</th>
+          <th >Пароль</th>
+          <th>Эмейл</th>
+          <th>Возраст</th>
+        </tr>
+        {%  for user in users%}
+        <tr>
+          <td>{{ user['id']  }}</td>
+          <td> <a href="{{url_for('user',user_name=user['username_'])}}">{{user['username_']}}  </a></td>
+          <td >{{ user['password_']  }}</td>
+          <td>{{ user['email_']  }}</td>
+          <td>{{ user['age_']  }}</td>
+        <tr>
+        {%  endfor  %}     
+      </table>
+    {% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+    {% block main %}
+        <br>
+        <img src="{{user['avatar']}}" width="100px",height='100px'>
+        <h1>{{user['username_']}}</h1> 
+        <h3>Емейл: {{user['email_']}}</h3> 
+        <h3>Возраст: {{user['age_']}}</h3> 
+        <h3>Всего публикаций {{cities|count}}</h3>
+        <h1>Публикации:</h1>
+
+        {%  for сity in cities  %}
+          <h1 >{{ сity['name_']  }}</h1>
+          <a href="{{url_for('city',city_name=сity['name_'])}}">
+            <img   src="{{ сity['image_'] }}" width="700", height="500px">
+          </a>
+        {%  endfor  %}
+          <br>
+      {% endblock %}

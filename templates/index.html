@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+    {% block main %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="error">
+          {% for message in messages %}
+            <li >{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}    
+        <h1>Добро пожаловать {{username}}</h1> 
+        {%  for сity in cities  %}
+          <h1 >{{ сity['name_']  }}</h1>
+          <h1 >{{ сity['id']  }}</h1>
+          <a href="{{url_for('city',city_name=сity['name_'])}}">
+            <img   src="{{ сity['image_'] }}" width="700", height="500px">
+
+          </a>
+          <h3 >{{ сity['description_'] }}</h3>
+        {%  endfor  %}
+
+      {% endblock %}
