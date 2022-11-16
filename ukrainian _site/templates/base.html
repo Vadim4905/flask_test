@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ukrainian_site</title>
+<link rel="stylesheet" type="text/css"  href="..\static\css\style.css"> 
+<link  rel="stylesheet" href="..\static\css1\bootstrap.min.css"> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body >
+
+<header>
+  <!-- <h2 >Ukrainian site</h2>
+  <nav>
+    <ul>
+        <li><img src="{{avatar}}" width="50px", height="50px"></li>
+        <li><a  href="{{url_for('user',user_name=username)}}">{{username}}</a></li>
+        <li> <a href="{{url_for('sign_out')}}">Выход из аккаунта</a></li>
+    </ul>
+  </nav>
+
+  <a style="float:left" href="{{url_for('index')}}">Главная страница</a> -->
+  
+  <nav  class="navbar navbar-expand-lg bg-light"> 
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{url_for('index')}}">Ukranian site</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{url_for('add_city')}}">Добавить город</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('all_users')}}">Все пользователи</a>
+          </li>
+          
+          {% if username %}
+            <li  class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle active" href="{{url_for('user',user_name=username)}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{username}}
+              </a>
+              <ul  class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{url_for('user',user_name=username)}}">Профиль</a></li>
+                <li><a class="dropdown-item" href="{{url_for('sign_out')}}">Выход</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" href="{{url_for('login')}}">Вход</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{url_for('register')}}">Регистрация</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header>
+
+
+<section class="p-3 m-0 border-0 bd-example">
+
+    {% block main %}{%endblock%}
+
+
+
+</section>
+
+
+
+
+</body>
+</html>

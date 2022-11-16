@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+        {% block main %}
+        <h1>{{ city['name_']  }}</h1>
+        {%  for image in images  %}
+        <img src="{{image}}"width="700", height="500px" ><br>
+        {%  endfor  %}
+        <h3>{{city['description_']}}</h3>
+        <h3>Население: {{city['population_']}}</h3>
+        <h3>Год основания: {{city['year_of_foundation']}}</h3>
+        <h3>Опубликовано пользавателем: <a href="{{url_for('user',user_name=city['posted_by'])}}">{{city['posted_by']}}</a></h3>
+        {% endblock %}
+

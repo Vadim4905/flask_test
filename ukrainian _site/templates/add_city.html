@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+    {% block main %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="error">
+      {% for message in messages %}
+        <li >{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% endwith %}  
+    <h3>Добавление города:</h3>
+    <form method="post" action="/" enctype=multipart/form-data>
+      <div class="mb-3">
+        <label for="inputname3" class="form-label">Название</label>
+        <input type="text" class="form-control" id="inputname3" name='name' required>
+      </div>
+      <div class="mb-3">
+        <label for="inputnumber3" class="form-label">Население</label>
+        <input type="number" step="1" max="8000000000"  min="0" value="0" class="form-control" id="inputnumber3" name='population' required>
+      </div>
+        <div class="mb-3">
+          <label for="inputdescription3" class="form-label">Короткое описание</label>
+          <textarea  type="text" class="form-control" id="inputdescription3" name='description' required></textarea>
+        </div>
+          <label for="inputyear3" class="form-label">Год основания</label>
+          <input step="1" min="-3000"  max="2022" value="1800" type="number" class="form-control" id="inputyear3" name='year_of_foundation' required>
+        </div>
+        <div class="mb-3">
+          <label for="formFileMultiple" class="form-label">Загрузите картинк(у/и)</label>
+          <input class="form-control" type="file" id="formFileMultiple" name="files[]" required multiple>
+        </div>
+        <input type='submit' value='Добавить'>
+    </form>
+    {% endblock %}

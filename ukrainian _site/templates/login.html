@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Ukrainian_site</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <!-- href="{{url_for('static',filename='css/style.css')}}" -->
+
+  </head>
+  <body>
+    <h1>Вход на сайт</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="error">
+      {% for message in messages %}
+        <li >{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+    <form method="post" action="/login">
+
+        <h3>Введите свой никнейм</h3>
+        <input type='text' name='username'>
+        <h3>Введите пароль</h3>
+        <input type='text' name='password'><br><br>
+        <input style='width: 40%' type='submit' value='Войти'><br>
+        <h3>НЕ ЗАРЕГИСТРИРОВАНЫ?<a href ="{{url_for('register')}}"> Присоединяйтесь!</a></h3>
+        <h3>Лень клацать по клавиатуре?<a href ="{{url_for('index')}}"> Продолжить как гость</a></h3>
+  </body>
+</html>
