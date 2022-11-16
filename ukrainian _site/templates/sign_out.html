@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-    
-  {% block main %}
-    <h1>Вы действительно хотите выйти?</h1>
-    <form method="post" action="/sign_out">
-      <input style="background-color: red;" type="submit" name="result" value="Да">
-      <input style="background-color: #4CAF50;" type="submit" name="result" value="Нет">
-    </form><br><br><br><br>
-  {% endblock %}
